@@ -1,0 +1,36 @@
+[project]
+name = "my-project"
+version = "0.1.0"
+description = "A brief description of my tool"
+readme = "README.md"
+requires-python = "==3.13"
+# Runtime dependencies added via 'uv add <package>'
+dependencies = [
+    "requests>=2.31.0",
+    "fastapi>=0.109.0",
+]
+
+[project.scripts]
+# Define CLI commands: 'my-command' runs the main() function in src/my_project/app.py
+my-command = "my_project.app:main"
+
+[dependency-groups]
+# Development-only tools added via 'uv add --dev <package>'
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.2.0",
+    "mypy>=1.8.0",
+]
+
+[build-system]
+# Standard build backend; 'hatchling' is common for modern uv projects
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+# Tells uv to manage this environment automatically
+managed = true
+# Optional: configuration for custom PyPI indexes
+# [[tool.uv.index]]
+# url = "https://test.pypi.org/simple"
+
